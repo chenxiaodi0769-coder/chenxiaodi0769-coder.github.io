@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="rt-build" content="20260911-1015">
+<meta name="rt-build" content="20260913-1342">
 <title>中秋+国庆游 9.18-10.4</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -370,7 +370,7 @@
 #helpbtn{right:14px;bottom:calc(env(safe-area-inset-bottom) + 118px);z-index:47;}
 
 /* 冷知识彩蛋按钮（浏览满时长后解锁，右侧说明上方抖动） */
-#eggbtn{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom) + 164px);z-index:47;box-sizing:border-box;
+#eggbtn{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom) + 210px);z-index:47;box-sizing:border-box;
   height:38px;min-width:38px;width:auto;padding:0 12px;border-radius:19px;
   background:linear-gradient(135deg,rgba(243,185,94,.88),rgba(200,136,31,.88));color:#fff;border:1px solid rgba(255,226,176,.9);
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
@@ -704,7 +704,7 @@ const DAYS = [
        {name:"喜洲古镇",nav:"喜洲古镇",addr:"清真路130号"},
        {name:"大研古城夜景",nav:"丽江大研古城",addr:"民主路与福慧路交叉口东南"}],
  stay:{name:"丽江三里田度假美宿（古城木府店）",nav:"丽江三里田度假美宿（古城木府店）",addr:"光义街光碧巷59号",tel:"19908888605",note:"已订套房 · 木府旁158m",feature:"木府旁158m·套房"},
- eat:[{name:"☕ 放啡咖啡馆（喜洲·一线麦田）",cuisine:"咖啡厅",rating:"4.4",price:"¥43/人",dishes:["一线麦田正对稻田+小火车","玫瑰拿铁/大理酸美式","提拉米苏/司康"],nav:"放啡咖啡馆",link:"#",note:"D9上午稻田咖啡首选·独栋白楼正对麦田与《去有风的地方》网红树·室内不晒·免费车位+包厢·老少宜"},{name:"☕ 山坂咖啡（喜洲1店）",cuisine:"咖啡厅",dishes:["喜洲古镇内庭院","手冲/特调"],nav:"山坂咖啡(喜洲1店)",link:"#",note:"D9上午咖啡备选·喜洲古镇市户街·高德可精准导航"},{name:"☕ 田咖啡（喜洲古镇店）",cuisine:"咖啡厅",dishes:["古镇街边咖啡","咖啡+饮品"],nav:"田咖啡(喜洲古镇店)",link:"#",note:"备选咖啡·喜洲市坪街·价格亲民·高德可精准导航"},{name:"☕ 云喃喃·稻田茶馆（喜洲）",cuisine:"咖啡厅",dishes:["二楼露台稻田+苍山","云南小粒咖啡","改良云南菜"],nav:"云喃喃·稻田茶馆",link:"#",note:"备选稻田咖啡·二楼露台看稻浪·可简餐"},{name:"山丘花园·云南创意料理(麦田小火车店)",rating:"4.6",cuisine:"云南创意料理",price:"¥79/人",addr:"大丽线喜洲古镇（网红转角楼南侧旁）",dishes:["汽锅鸡","野果酸汤鱼","铁板菌菇虾仁"],nav:"山丘花园·云南创意料理(麦田小火车店)",link:"https://m.dianping.com/shopinfo/l6ORqGJqGOG3dzPN?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=248&cityid=3627&isoversea=0",note:"D9午餐主选·拍完稻田步行即到·二楼观景位看稻浪·老人小孩不晒"},     {name:"春宗棠·云南菜·稻田餐厅(喜洲稻田店)",rating:"4.6",cuisine:"云南菜｜滇菜",price:"¥79/人",addr:"喜洲古镇（镇东路与镇南路交叉口正北370米）",dishes:["油炝黄喉","洋芋油焖鸡","茉莉花炒蛋"],nav:"春宗棠·云南菜·稻田餐厅(喜洲稻田店)",link:"https://m.dianping.com/shopinfo/G5P8DE70okYMsNq1?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=248&cityid=3627&isoversea=0",note:"备选·山丘满座时备用·有宝宝椅·部分菜偏辣需控辣"}],
+ eat:[{name:"☕ 放啡咖啡馆（喜洲·一线麦田）",cuisine:"咖啡厅",rating:"4.4",price:"¥43/人",dishes:["一线麦田正对稻田+小火车","玫瑰拿铁/大理酸美式","提拉米苏/司康"],nav:"放啡咖啡馆",link:"#",note:"D9上午稻田咖啡首选·独栋白楼正对麦田与《去有风的地方》网红树·室内不晒·免费车位+包厢·老少宜"},{name:"☕ 山坂咖啡（喜洲1店）",cuisine:"咖啡厅",dishes:["喜洲古镇内庭院","手冲/特调"],nav:"山坂咖啡(喜洲1店)",link:"#",note:"D9上午咖啡备选·喜洲古镇市户街·高德可精准导航"},{name:"☕ 田咖啡（喜洲古镇店）",cuisine:"咖啡厅",dishes:["古镇街边咖啡","咖啡+饮品"],nav:"田咖啡(喜洲古镇店)",link:"#",note:"备选咖啡·喜洲市坪街·价格亲民·高德可精准导航"},{name:"☕ 云喃喃·稻田茶馆（喜洲）",cuisine:"咖啡厅",dishes:["二楼露台稻田+苍山","云南小粒咖啡","改良云南菜"],nav:"云喃喃·稻田茶馆",link:"#",note:"备选稻田咖啡·二楼露台看稻浪·可简餐"},{name:"山丘花园·云南创意料理(麦田小火车店)",rating:"4.6",cuisine:"云南创意料理",price:"¥79/人",addr:"大丽线喜洲古镇（网红转角楼南侧旁）",dishes:["汽锅鸡","野果酸汤鱼","铁板菌菇虾仁"],nav:"山丘花园·云南创意料理(麦田小火车店)",link:"https://m.dianping.com/shopinfo/l6ORqGJqGOG3dzPN?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=248&cityid=3627&isoversea=0",note:"D9午餐主选·拍完稻田步行即到·二楼观景位看稻浪·老人小孩不晒"},     {name:"春宗棠·云南菜·稻田餐厅(喜洲稻田店)",rating:"4.6",cuisine:"云南菜｜滇菜",price:"¥79/人",addr:"喜洲古镇（镇东路与镇南路交叉口正北370米）",dishes:["油炝黄喉","洋芋油焖鸡","茉莉花炒蛋"],nav:"春宗棠·云南菜·稻田餐厅(喜洲稻田店)",link:"https://m.dianping.com/shopinfo/G5P8DE70okYMsNq1?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=248&cityid=3627&isoversea=0",note:"备选·山丘满座时备用·有宝宝椅·部分菜偏辣需控辣"},{name:"☕ 印象庄园Veltro灰猎犬咖啡烘焙工厂(坡地店)",cuisine:"咖啡厅",rating:"4.7",price:"¥42/人",dishes:["手冲单品","日晒拼配豆","烘焙甜点"],nav:"印象庄园Veltro灰猎犬咖啡烘焙工厂(坡地店)",link:"https://m.dianping.com/shopinfo/G8iE8ix9FyZOTeoq?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=132&cityid=279&isoversea=0",note:"D9大研古城夜景前后·丽江古城通用可选项(后行梯队爱咖啡去喝·父母不爱则继续逛古城不勉强)·红谷坡地艺术区A栋2楼·坐标待补(暂未进路线地图POI)"}],
  warn:"晚上轻量逛大研古城（大水车+忠义市场夜市），别逛太晚——次日白沙+玉湖自然日"},
 
 {d:"D10",date:"2026-09-27",week:"周日",route:"白沙+玉湖自然日",km:"约60km",team:"全员6人",
