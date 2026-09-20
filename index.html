@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="rt-build" content="20260920-1525">
+<meta name="rt-build" content="20260920-1600">
 <title>中秋+国庆游 9.18-10.4</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -33,8 +33,8 @@
   .ht-region{font-size:13px;font-weight:600;color:var(--sub);margin-left:3px;}
   .bar{display:flex;gap:7px;overflow-x:auto;padding:9px 0 3px;scrollbar-width:none;}
   .bar::-webkit-scrollbar{display:none;}
-  .chip{flex:0 0 auto;padding:6px 11px;border:1px solid var(--line);border-radius:20px;
-    background:var(--chip);font-size:16px;color:var(--sub);white-space:nowrap;cursor:pointer;}
+  .chip{flex:0 0 106px;width:106px;padding:6px 0;border:1px solid var(--line);border-radius:20px;
+    background:var(--chip);font-size:16px;color:var(--sub);white-space:nowrap;cursor:pointer;text-align:center;}
   .chip.on{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:700;}
   .chip .d{font-weight:700;}
   main{padding:12px 12px 96px;max-width:640px;margin:0 auto;}
@@ -304,9 +304,10 @@
 .eat-sub .pa{font-size:16px;color:#8a857c;}
 
   /* ===== 查看当日动线 ===== */
-  .rtbtn{display:inline-block;margin-top:9px;background:transparent;border:1px solid var(--gold);color:var(--gold);
-    border-radius:12px;padding:5px 14px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;
-    -webkit-tap-highlight-color:transparent;}
+  .rtbtn{display:inline-flex;align-items:center;gap:3px;margin-top:6px;background:#fff;color:var(--sub);
+    border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:16px;font-weight:400;
+    cursor:pointer;font-family:inherit;}
+  .rtbtn:active{opacity:.6;}
   .rtline{margin-top:9px;font-size:15px;line-height:1.75;color:var(--sub);}
   .rtline .rs-key{color:var(--gold);font-weight:700;}
   .rtline .rs-opt{color:#9a9286;}
@@ -351,11 +352,17 @@
   .rtmini .rs-arw{color:#cfc8bc;margin:0 3px;}
   .rtmore{position:absolute;right:0;top:0;font-size:12px;color:#8a7a5e;
     border:1px solid var(--line);border-radius:11px;padding:3px 9px;background:#fff;}
-  .rtchips{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none;}
+  .rtchipbar{display:flex;align-items:center;gap:6px;padding:0 12px 10px;}
+  .rtchips{flex:1 1 auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;}
   .rtchips::-webkit-scrollbar{display:none;}
-  .rtchip{flex:0 0 auto;min-width:84px;display:inline-flex;align-items:center;justify-content:center;
-    padding:5px 11px;border:1px solid var(--line);border-radius:13px;
+  .rtchip{flex:0 0 104px;width:104px;display:inline-flex;align-items:center;justify-content:center;
+    padding:5px 0;border:1px solid var(--line);border-radius:13px;
     background:#fff;font-size:13px;color:var(--sub);white-space:nowrap;cursor:pointer;}
+  .rtnav{flex:0 0 34px;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;
+    background:#fff;color:var(--gold);font-size:20px;line-height:1;cursor:pointer;font-family:inherit;
+    display:inline-flex;align-items:center;justify-content:center;}
+  .rtnav:active{opacity:.6;}
+  .rtnav[disabled]{opacity:.28;color:var(--sub);}
   .rtchip.on{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:700;}
   /* 当日动线半窗固定高度：切日不再跳动，长内容在 body 内滚动 */
   #rtov .memo-sheet{height:82vh;}
@@ -586,7 +593,11 @@
       <div class="memo-t">当日动线</div>
       <div class="memo-acts"><button class="memo-x" onclick="closeRoute()">关闭</button></div>
     </div>
-    <div class="rtchips" id="rtChips"></div>
+    <div class="rtchipbar">
+      <button class="rtnav" id="rtPrev" onclick="rtStep(-1)" aria-label="前一天">‹</button>
+      <div class="rtchips" id="rtChips"></div>
+      <button class="rtnav" id="rtNext" onclick="rtStep(1)" aria-label="后一天">›</button>
+    </div>
     <div class="memo-body" id="rtBody"></div>
     <div class="memo-foot"><button class="memo-fbtn" onclick="closeRoute()">收起当日动线</button></div>
   </div>
@@ -636,7 +647,11 @@ var POI_EXTRA = {
  "弥勒东风韵景区": {open:"08:30–18:00", fee:{note:"门票+观光车已含在观璟民宿，无需另购"}},
  "云南红酒庄": {open:"09:00–17:30", fee:{full:"约¥20", old:"持老年证免票", child:"1.2m 以下免票"}, link:"https://you.ctrip.com/sight/mileshi1342/142686.html"},
  "澄碧湖": {open:"全天开放", fee:{free:true}},
- "百色起义纪念园": {open:"09:00–17:00（周一闭馆）", fee:{free:true, note:"免费 · 5A 景区"}}
+ "百色起义纪念园": {open:"09:00–17:00（周一闭馆）", fee:{free:true, note:"免费 · 5A 景区"}},
+ "朱德旧居": {open:"周二–周日 09:00–16:30（16:00止入）· 周一闭馆", fee:{free:true}},
+ "云南起义纪念馆 · 卢汉公馆": {open:"周二–周五 09:00–17:00 / 周末 09:00–18:00 · 周一闭馆", fee:{free:true, note:"建议提前预约"}},
+ "云南解放纪念馆": {open:"周二–周五 09:00–17:00 / 周末 09:00–18:00 · 周一闭馆", fee:{free:true}},
+ "云南陆军讲武堂历史博物馆": {open:"周二–周日 09:00–17:00（16:30止入）· 周一闭馆", fee:{free:true, note:"需提前预约"}}
 };
 const DAYS = [
 {d:"D1",date:"2026-09-18",week:"周五",route:"东莞→玉林",km:"440km",team:"先行3人",
@@ -678,7 +693,10 @@ warn:"今天直驱昆明（实测约575km/6.6h·98%高速·57处隧道）·7:00�
 
 {d:"D6",date:"2026-09-23",week:"周三",route:"昆明休整＋全员汇合",km:"0km",team:"全员6人",
  go:"上午爸妈走朱德线（打车赴朱德旧居 → 步行464m 云南起义纪念馆 → 步行378m 云南解放纪念馆 → 步行637m 云南陆军讲武堂，圈内共1.48km → 打车回）；后行梯队 KY8278 12:30 抵长水 → 自行到店（不接机·打车约40min/地铁6→2号线约45min）→ 14:00 酒店汇合办入住；傍晚老街+南强夜市",
- play:[{name:"朱德线·红色步行圈（上午·爸妈）",nav:"朱德旧居",addr:"朱德旧居(红花巷4号)→步行464m/9分→云南起义纪念馆(卢汉公馆)→378m/8分→云南解放纪念馆→637m/13分→云南陆军讲武堂历史博物馆；圈内共1.48km，馆间全步行"},
+ play:[{name:"朱德旧居",nav:"朱德旧居",addr:"第1站 · 华山西路红花巷4号（地铁D口440m）· 走464m/9分到下一站"},
+      {name:"云南起义纪念馆 · 卢汉公馆",nav:"云南起义纪念馆",addr:"第2站 · 翠湖南路4号（翠湖东门对面）· 走378m/8分到下一站"},
+      {name:"云南解放纪念馆",nav:"云南解放纪念馆",addr:"第3站 · 翠湖南路65号宅院 · 走637m/13分到下一站"},
+      {name:"云南陆军讲武堂历史博物馆",nav:"云南陆军讲武堂历史博物馆",addr:"第4站 · 翠湖西路22号 · 线末，打车回酒店1.85km/10分"},
       {name:"翠湖公园（休整·可选）",nav:"昆明翠湖公园",addr:"翠湖路67号"},
        {name:"南强夜市",nav:"昆明南强街巷",addr:"南强街88号附10号"}],
  stay:{name:"昆明栩云里（老街南屏步行街店）",nav:"昆明栩云里（老街南屏步行街店）",addr:"劝学巷11号阳光A版F3层",tel:"0871-63311828",note:"已订 · 两间 · 住第2晚(9.23)",feature:"南屏步行街·两间"},
@@ -1012,7 +1030,11 @@ const POI = {
   "田咖啡(喜洲古镇店)": {"id":"B0LBFPSQAJ","lng":"100.134602","lat":"25.856763","name":"田咖啡","addr":"喜洲镇市坪街179-1号"},
   "云喃喃·稻田茶馆": {"id":"B0MBY558UL","lng":"100.138569","lat":"25.852665","name":"云喃喃·稻田茶馆·创意云南菜","addr":"喜洲镇寺里村委会城东村15社37号"},
   "楚雄味道": {"id":"B0FFKDEBNP","lng":"101.523132","lat":"25.064336","name":"楚雄味道","addr":"东盛东路彝人古镇八期J3幢"},
-  "印象庄园Veltro灰猎犬咖啡烘焙工厂(坡地店)": {"id":"B0HKKULNJ2","lng":"100.234126","lat":"26.879955","name":"印象庄园 Veltro 灰猎犬咖啡烘焙梦工场(坡地店)","addr":"红谷坡地艺术区B-1"}
+  "印象庄园Veltro灰猎犬咖啡烘焙工厂(坡地店)": {"id":"B0HKKULNJ2","lng":"100.234126","lat":"26.879955","name":"印象庄园 Veltro 灰猎犬咖啡烘焙梦工场(坡地店)","addr":"红谷坡地艺术区B-1"},
+  "朱德旧居": {"id":"B0367071WD","lng":"102.708762","lat":"25.048422","name":"朱德旧居","addr":"华山西路红花巷4号","thumb":"img/B0367071WD.jpg"},
+  "云南起义纪念馆": {"id":"B0367086LZ","lng":"102.707044","lat":"25.048673","name":"云南起义纪念馆","addr":"翠湖南路4号","thumb":"img/B0367086LZ.jpg"},
+  "云南解放纪念馆": {"id":"B0FFLO8Y4C","lng":"102.704603","lat":"25.046441","name":"云南解放纪念馆(翠湖南路65号宅院)","addr":"翠湖南路65号","thumb":"img/B0FFLO8Y4C.jpg"},
+  "云南陆军讲武堂历史博物馆": {"id":"B0367018F9","lng":"102.700647","lat":"25.047875","name":"云南陆军讲武堂历史博物馆","addr":"翠湖西路22号","thumb":"img/B0367018F9.jpg"}
 };
 
 function thumbBlock(kw, name){
@@ -1264,6 +1286,20 @@ function rtPaintSheet(){
     }).join("");
   }
   if (bd) bd.innerHTML = rtTimeline(day);
+  var idx = -1;
+  DAYS.forEach(function(d,i){ if (d.d === day) idx = i; });
+  var pv = document.getElementById("rtPrev"), nx = document.getElementById("rtNext");
+  if (pv) pv.disabled = (idx <= 0);
+  if (nx) nx.disabled = (idx < 0 || idx >= DAYS.length - 1);
+}
+// 左右箭头：前一天 / 后一天
+function rtStep(delta){
+  var i = -1;
+  DAYS.forEach(function(d,k){ if (d.d === rtDay()) i = k; });
+  if (i < 0) i = 0;
+  var j = i + delta;
+  if (j < 0 || j >= DAYS.length) return;
+  rtPick(DAYS[j].d);
 }
 function rtCenterChip(){
   var c = document.querySelector("#rtChips .rtchip.on");
@@ -1393,7 +1429,7 @@ DAYS.forEach((d,i)=>{
 
   // 行
   html += '<div class="sec" id="sec-go-'+d.d+'"><div class="ico">🚗</div><div class="body"><div class="lbl">行</div><div class="txt">'+d.go+'</div>'+
-          '<button class="rtbtn" onclick="openRoute(\''+d.d+'\')">查看动线</button></div></div>';
+          '<button class="rtbtn" onclick="openRoute(\''+d.d+'\')">🗺 查看动线</button></div></div>';
 
   // 玩
   if (d.play && d.play.length){
